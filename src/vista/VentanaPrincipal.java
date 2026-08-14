@@ -16,6 +16,7 @@ public class VentanaPrincipal extends JFrame {
         setContentPane(escritorio);
 
         crearBarraMenu();
+        new dao.NominaDAO().generarNominasAutomaticas();
     }
 
     private void crearBarraMenu() {
@@ -23,7 +24,7 @@ public class VentanaPrincipal extends JFrame {
 
         JMenu menuPersonal = new JMenu("Personal");
         agregarItem(menuPersonal, "Gestionar Empleados", e -> abrirVentanaEmpleado());
-        agregarItem(menuPersonal, "Nóminas", e -> abrirPendiente("Gestión de Nóminas"));
+        agregarItem(menuPersonal, "Nóminas", e -> abrirVentanaNomina());
 
         JMenu menuInventario = new JMenu("Inventario");
         agregarItem(menuInventario, "Gestionar Insumos", e -> abrirVentanaInsumo());
@@ -38,9 +39,9 @@ public class VentanaPrincipal extends JFrame {
         agregarItem(menuCuentas, "Gestionar Cuentas", e -> abrirVentanaCuenta());
 
         JMenu menuReportes = new JMenu("Reportes");
-        agregarItem(menuReportes, "Flujo de Caja", e -> abrirPendiente("Reporte de Flujo de Caja"));
-        agregarItem(menuReportes, "Productos Más Vendidos", e -> abrirPendiente("Reporte de Productos"));
-        agregarItem(menuReportes, "Insumos con Bajo Stock", e -> abrirPendiente("Reporte de Bajo Stock"));
+        agregarItem(menuReportes, "Flujo de Caja", e -> abrirVentanaReporte());
+        agregarItem(menuReportes, "Productos Más Vendidos", e -> abrirVentanaReporte());
+        agregarItem(menuReportes, "Insumos con Bajo Stock", e -> abrirVentanaReporte());
 
         menuBar.add(menuPersonal);
         menuBar.add(menuInventario);
@@ -91,6 +92,18 @@ public class VentanaPrincipal extends JFrame {
         VentanaCuenta vc = new VentanaCuenta();
         escritorio.add(vc);
         vc.setVisible(true);
+    }
+
+    private void abrirVentanaNomina() {
+        VentanaNomina vn = new VentanaNomina();
+        escritorio.add(vn);
+        vn.setVisible(true);
+    }
+
+    private void abrirVentanaReporte() {
+        VentanaReporte vr = new VentanaReporte();
+        escritorio.add(vr);
+        vr.setVisible(true);
     }
 
     public JDesktopPane getEscritorio() {
