@@ -29,13 +29,13 @@ public class VentanaPrincipal extends JFrame {
         agregarItem(menuInventario, "Gestionar Insumos", e -> abrirVentanaInsumo());
 
         JMenu menuMenu = new JMenu("Menú");
-        agregarItem(menuMenu, "Gestionar Productos", e -> abrirPendiente("Gestión de Menú"));
+        agregarItem(menuMenu, "Gestionar Productos", e -> abrirVentanaProducto());
 
         JMenu menuMesas = new JMenu("Mesas");
-        agregarItem(menuMesas, "Control de Mesas", e -> abrirPendiente("Control de Mesas"));
+        agregarItem(menuMesas, "Control de Mesas", e -> abrirVentanaMesa());
 
         JMenu menuCuentas = new JMenu("Cuentas");
-        agregarItem(menuCuentas, "Gestionar Cuentas", e -> abrirPendiente("Gestión de Cuentas"));
+        agregarItem(menuCuentas, "Gestionar Cuentas", e -> abrirVentanaCuenta());
 
         JMenu menuReportes = new JMenu("Reportes");
         agregarItem(menuReportes, "Flujo de Caja", e -> abrirPendiente("Reporte de Flujo de Caja"));
@@ -73,6 +73,24 @@ public class VentanaPrincipal extends JFrame {
         VentanaInsumo vi = new VentanaInsumo();
         escritorio.add(vi);
         vi.setVisible(true);
+    }
+
+    private void abrirVentanaProducto() {
+        VentanaProducto vp = new VentanaProducto();
+        escritorio.add(vp);
+        vp.setVisible(true);
+    }
+
+    private void abrirVentanaMesa() {
+        VentanaMesa vm = new VentanaMesa();
+        escritorio.add(vm);
+        vm.setVisible(true);
+    }
+
+    private void abrirVentanaCuenta() {
+        VentanaCuenta vc = new VentanaCuenta();
+        escritorio.add(vc);
+        vc.setVisible(true);
     }
 
     public JDesktopPane getEscritorio() {
