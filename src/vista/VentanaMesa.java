@@ -78,6 +78,7 @@ public class VentanaMesa extends JInternalFrame {
             } else {
                 btnMesa.setBackground(new Color(240, 128, 128)); // rojo claro
             }
+           btnMesa.setForeground(new Color(30, 30, 30)); // texto oscuro fijo, siempre legible sobre verde/rojo claro
             btnMesa.setOpaque(true);
             btnMesa.setBorderPainted(false);
             panelVisual.add(btnMesa);
