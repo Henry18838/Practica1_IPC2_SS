@@ -62,7 +62,7 @@ public class CuentaDAO {
         }
     }
 
-    // --- Agrega un producto a la cuenta, descuenta inventario y actualiza el total ---
+    //  Agrega un producto a la cuenta, descuenta inventario y actualiza el total
     public boolean agregarProducto(int idCuenta, int codigoProducto, int cantidad, double precioUnitario) {
         if (!verificarInventarioSuficiente(codigoProducto, cantidad)) {
             return false; // el llamador debe mostrar la alerta de inventario insuficiente
@@ -118,7 +118,7 @@ public class CuentaDAO {
         }
     }
 
-    // --- Cobra la cuenta: la marca PAGADA, registra propina, y libera la mesa ---
+    //  Cobra la cuenta: la marca PAGADA, registra propina, y libera la mesa 
     public boolean cobrarCuenta(int idCuenta, int numeroMesa, double propina) {
         Connection con = ConexionBD.obtenerConexion();
         String sqlCuenta = "UPDATE cuenta SET estado = 'PAGADA', hora_cierre = NOW(), propina = ? WHERE id_cuenta = ?";

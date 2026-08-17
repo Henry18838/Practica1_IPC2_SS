@@ -35,7 +35,7 @@ public class ConexionBD {
         }
     }
 
-    // Clase de prueba rápida — la puedes borrar después de confirmar que conecta
+    // Clase de prueba rápida
     public static void main(String[] args) {
         Connection con = obtenerConexion();
         if (con != null) {
